@@ -1,6 +1,6 @@
 <body>
 
-<form class="form" action="" method="post">
+<form class="form" action="http://tasklistmvc/index.php?class=main&mtd=createUser" method="post">
 
     <h1 class="form__title">Signup</h1>
 

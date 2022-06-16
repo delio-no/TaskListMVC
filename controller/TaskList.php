@@ -10,7 +10,65 @@ class TaskList extends ACore
         $this->m = new TaskListModel();
     }
 
-    public function obr(){
+    public function obr()
+    {
+        return $userId = intval($_SESSION['id_user']);
+    }
+
+    function addTask()
+    {
+        if (isset($_POST['btnadd'])) {
+            $work = $_POST['work'];
+            if (!empty($_POST['work'])) {
+                $this->m->setDescriptionTask($this->obr(), $work);
+            }
+            header("location: ../index.php?class=tasklist&mtd=addTask");
+            exit;
+        }
+    }
+
+    function deleteAllTask()
+    {
+        if (isset($_POST['btnrmall'])) {
+            $this->m->deleteTaskList($this->obr());
+            header("location: ../index.php?class=tasklist&mtd=deleteAllTask");
+            exit;
+        }
+    }
+
+    function deleteTask()
+    {
+        if (isset($_POST['btnrm'])) {
+            $idTask = $_POST['btnrm'];
+            $this->m->deleteIdTask($idTask);
+            header("location: ../index.php?class=tasklist&mtd=deleteTask");
+            exit;
+        }
+    }
+
+    function statusReady()
+    {
+        if (isset($_POST['btnrd'])) {
+            $idTask = $_POST['btnrd'];
+            $this->m->statusReadyTask($idTask);
+            header("location: ../index.php?class=tasklist&mtd=statusReady");
+            exit;
+        }
+    }
+
+    function statusUnready()
+    {
+        if (isset($_POST['btnunrd'])) {
+            $idTask = $_POST['btnunrd'];
+            $this->m->statusUnReadyTask($idTask);
+            header("location: ../index.php?class=tasklist&mtd=statusUnready");
+            exit;
+        }
+    }
+
+
+    /*public function obr()
+    {
         $userId = intval($_SESSION['id_user']);
 
 
@@ -20,7 +78,7 @@ class TaskList extends ACore
             if (!empty($_POST['work'])) {
                 $this->m->setDescriptionTask($userId, $work);
             }
-            header("location: ../index.php?option=tasklist");
+            header("location: ../index.php?class=tasklist");
             exit;
         }
 
@@ -28,7 +86,7 @@ class TaskList extends ACore
         //реализуем удаление всего списка дел
         if (isset($_POST['btnrmall'])) {
             $this->m->deleteTaskList($userId);
-            header("location: ../index.php?option=tasklist");
+            header("location: ../index.php?class=tasklist");
             exit;
         }
 
@@ -37,7 +95,7 @@ class TaskList extends ACore
         if (isset($_POST['btnrm'])) {
             $idTask = $_POST['btnrm'];
             $this->m->deleteIdTask($idTask);
-            header("location: ../index.php?option=tasklist");
+            header("location: ../index.php?class=tasklist");
             exit;
         }
 
@@ -46,7 +104,7 @@ class TaskList extends ACore
         if (isset($_POST['btnrd'])) {
             $idTask = $_POST['btnrd'];
             $this->m->statusReadyTask($idTask);
-            header("location: ../index.php?option=tasklist");
+            header("location: ../index.php?class=tasklist");
             exit;
         }
 
@@ -54,10 +112,10 @@ class TaskList extends ACore
         if (isset($_POST['btnunrd'])) {
             $idTask = $_POST['btnunrd'];
             $this->m->statusUnReadyTask($idTask);
-            header("location: ../index.php?option=tasklist");
+            header("location: ../index.php?class=tasklist");
             exit;
         }
-    }
+    }*/
 
     public function getContent()
     {
