@@ -10,13 +10,13 @@ abstract class ACore
         $this->m = new model();
     }
 
-
-
-    public function getBody(){
-        if ($_POST){
+    public function getBody($tpl)
+    {
+        if ($_POST) {
             $this->obr();
         }
-        $this->getContent();
+
+        include "tpl/index.php";
     }
 
     abstract function getContent();

@@ -8,9 +8,9 @@
             <button class="form__button" name="btnrmall" type="submit">REMOVE ALL</button>
     </div>
     <br>
-    <? foreach ($this->db->getDescriptionTaskList($_SESSION['id_user']) as $key => &$value) { ?>
-        <? $idTask = $this->db->getIdTask($_SESSION['id_user']) ?>
-        <? $statusTask = $this->db->getStatusTaskList($_SESSION['id_user']) ?>
+    <? foreach ($this->m->getDescriptionTaskList($_SESSION['id_user']) as $key => &$value) { ?>
+        <? $idTask = $this->m->getIdTask($_SESSION['id_user']) ?>
+        <? $statusTask = $this->m->getStatusTaskList($_SESSION['id_user']) ?>
         <div>
             <label class="form__label"><?= htmlspecialchars($value) ?></label>
             <br>

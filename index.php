@@ -2,7 +2,7 @@
 
 session_start();
 
-function libraryOne($class)
+function controller($class)
 {
     $filename = "controller/" . $class . ".php";
     if (file_exists($filename)) {
@@ -10,7 +10,7 @@ function libraryOne($class)
     }
 }
 
-function libraryTwo($class)
+function model($class)
 {
     $filename = "model/" . $class . ".php";
     if (file_exists($filename)) {
@@ -18,8 +18,8 @@ function libraryTwo($class)
     }
 }
 
-spl_autoload_register('libraryOne');
-spl_autoload_register('libraryTwo');
+spl_autoload_register('controller');
+spl_autoload_register('model');
 
 
 if ($_GET['option']) {
@@ -31,7 +31,7 @@ if ($_GET['option']) {
 
 if (class_exists($class)) {
     $obj = new $class;
-    $obj->getBody();
+    $obj->getBody($class);
 } else {
     exit("<p>Не правильные данные для входа</p>");
 }

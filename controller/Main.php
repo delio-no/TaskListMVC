@@ -1,6 +1,6 @@
 <?php
 
-class main extends ACore
+class Main extends ACore
 {
 
     public function obr()
@@ -43,7 +43,5 @@ class main extends ACore
 
     public function getContent()
     {
-        require_once "header/main.php";
-        require_once "tpl/mainView.php";
     }
 }
