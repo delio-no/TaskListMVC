@@ -7,7 +7,7 @@ abstract class ACore
 
     public function __construct()
     {
-        $this->m = new model();
+        $this->m = new Model();
     }
 
     public function getBody($tpl)

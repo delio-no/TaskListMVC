@@ -3,6 +3,13 @@
 class TaskList extends ACore
 {
 
+    protected $m;
+
+    public function __construct()
+    {
+        $this->m = new TaskListModel();
+    }
+
     public function obr(){
         $userId = intval($_SESSION['id_user']);
 

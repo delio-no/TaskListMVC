@@ -3,6 +3,13 @@
 class Main extends ACore
 {
 
+    protected $m;
+
+    public function __construct()
+    {
+        $this->m = new MainModel();
+    }
+
     public function obr()
     {
         $login = $_POST['login'];
