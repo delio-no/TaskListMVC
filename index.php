@@ -37,7 +37,7 @@ if ($_GET['mtd']) {
 
 if (class_exists($class)) {
     $obj = new $class;
-    $obj->getBody($class);
+    /*$obj->getBody($class);*/
     if (method_exists($obj, "$mtd")){
         $obj->$mtd();
     }
